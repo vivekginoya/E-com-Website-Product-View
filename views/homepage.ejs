@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce Website</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="container">
+      <!-- navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Kharidi.com</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="/allproducts">All Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Today's Deals</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" id="navbarScrollingDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Electronics
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="/electronics?subcatid=63e9169c8b0485a1f413796f">Mobiles</a></li>
+                  <li><a class="dropdown-item" href="/electronics?subcatid=63e916a68b0485a1f4137971">Laptops</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  Grocery
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                  <li><a class="dropdown-item" href="/grocery?subcatid=63e918ccc1d6a77f7474a543">Snacks</a></li>
+                  <li><a class="dropdown-item" href="/grocery?subcatid=63e918d3c1d6a77f7474a545">Fuits</a></li>
+                </ul>
+              </li>
+
+            </ul>
+            <form class="d-flex">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <!-- carousel -->
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="active"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" class="active"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="./images/ECOM.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/ECOM.jpg" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="./images/ECOM.jpg" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div style="text-align: center; margin: 30px; ">
+        <h3>Products</h3>
+      </div>
+      <!-- card -->
+        <div class="d-flex flex-wrap " style=" grid-row-gap: 20px; column-gap: 30px; margin: 0px 25px;">
+          <%for(let i=0; i< data.length; i++){%>
+          <div class="card" style="width: 18rem;">
+            <img style="height: 200px;width: 100%;" src="./images/<%=data[i].productimg%>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%=data[i].productname%></h5>
+              <p class="card-text">₹<%=data[i].price%></p>
+              <a href="#" style="width: 250px;" class="btn btn-primary mb-2 mt-2">Buy</a>
+              <a href="#" style="width: 250px;" class="btn btn-primary">Add To Cart</a>
+            </div>
+          </div>
+          <%}%>
+        </div>
+      
+
+    </div>
+  </div>
+</body>
+
+</html>
